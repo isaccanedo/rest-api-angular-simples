@@ -1,10 +1,17 @@
 <h2>Listagem</h2>
 
-<ul>
+<table border="1">
+<thead>
+    <th>ID</th>
+    <th>NOME</th>
+    <th>TELEFONE</th>
+</thead>
+<tbody>
+    <tr *ngFor="let c of contatos">   
+    <td>{{c.id}}</td>
+    <td>{{c.nome}}</td>
+    <td>{{c.telefone}}</td>
+</tr>
+</tbody>
+</table>
 
-    <li *ngFor="let c of contatos">
-        {{c.id}} - {{c.nome}} - {{c.telefone}}
-    </li>
-   
-
-</ul>
