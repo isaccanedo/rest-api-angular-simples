@@ -1,3 +1,4 @@
+import { ContatoService } from './../contato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,17 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatosListagemComponent implements OnInit {
 
-  contatos = [
-    {"id": 1, "nome": "Isac", "telefone":"123"},
-    {"id": 2, "nome": "Maria", "telefone":"678"}
-  ];
+  contatos: Array<any>;
 
-  constructor() { }
+  constructor(private contatoService: ContatoService) { }
 
   ngOnInit(): void {
+    this.listar();
+  }
 
- 
-
+  listar() {
+    this.contatoService.listar().subscribe(dados => this.contatos = dados);
   }
   
 
